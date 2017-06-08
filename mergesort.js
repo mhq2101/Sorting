@@ -29,6 +29,9 @@ function merge(left, right) {
 
 function mergeSort(array) {
     var result = [];
+    if (array.length === 0) {
+        return [];
+    }
     if (array.length === 1) {
         return array;
     }
