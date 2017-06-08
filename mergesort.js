@@ -10,7 +10,22 @@ function split(arr) {
 
 }
 
-
+function merge(left, right) {
+    var result = []
+    var j = 0;
+    var i = 0;
+    while (i<right.length || j<left.length) {
+        if (right[i] < left[j] || left[j] === undefined) {
+            result.push(right[i]);
+            i++;
+        }
+        else {                
+            result.push(left[j]);
+            j++;
+        }
+    }
+        return result;
+}
 
 function mergeSort(array) {
     var result = [];
@@ -20,21 +35,20 @@ function mergeSort(array) {
     else {
         var left = mergeSort(split(array)[0]);
         var right = mergeSort(split(array)[1]);
-        var j = 0;
-        var i = 0;
-        while (i<right.length || j<left.length) {
-            if (right[i] < left[j] || left[j] === undefined) {
-                result.push(right[i]);
-                i++;
-            }
-            else {
-                result.push(left[j]);
-                j++;
-            }
-        }
+        result = merge(left, right);
+        // var j = 0;
+        // var i = 0;
+        // while (i<right.length || j<left.length) {
+        //     if (right[i] < left[j] || left[j] === undefined) {
+        //         result.push(right[i]);
+        //         i++;
+        //     }
+        //     else {
+        //         result.push(left[j]);
+        //         j++;
+        //     }
+        // }
         return result;
-
-       
     }
 }
 
